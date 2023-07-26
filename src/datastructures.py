@@ -8,6 +8,20 @@ update this file to implement the following already declared methods:
 """
 from random import randint
 
+initial_family_data = [{
+    "name": "John",
+    "age": "33",
+    "lucky number": [ 7, 13, 22]
+}, {
+    "name": "Jane",
+    "age": "35",
+    "lucky number": [ 10, 14, 3]
+}, {
+    "name": "Jimmy",
+    "age": "5",
+    "lucky number": [ 1 ]
+}]
+
 class FamilyStructure:
     def __init__(self, last_name):
         self.last_name = last_name
@@ -15,21 +29,21 @@ class FamilyStructure:
         # example list of members
         self._members = [
             {
-            "id": self._generateId,
+            "id": self._generateId(),
             "first_name": "John",
             "last_name": last_name,
             "age": 33,
             "lucky_numbers":[7, 13, 22]
         },
         {
-            "id": self._generateId,
+            "id": self._generateId(),
             "first_name": "Jane",
             "last_name": last_name,
             "age": 35,
             "lucky_numbers":[10, 14, 3]
         },
         {
-            "id": self._generateId,
+            "id": self._generateId(),
             "first_name": "Jimmy",
             "last_name": last_name,
             "age": 5,
@@ -42,21 +56,21 @@ class FamilyStructure:
         return randint(0, 99999999)
 
     def add_member(self, member):
-        self._member.append(member)
-        return None
+      self._members.append(member)
+      return self._members       
 
     def delete_member(self, id):
         for member in self._members:
             if member["id"] == id:
                 self._members.remove(member)
                 return self._members
-        return None
+        return self._members
 
     def get_member(self, id):
         for member in self._members:
             if member["id"] == id:
                 return member
-        return None    
+        return member["id"]    
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
